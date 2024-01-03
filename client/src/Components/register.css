@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+}
+.Register{
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+form{
+    margin: 0 auto;
+    max-width: 400px;
+}
+.username , .password{
+    display: block;
+    margin: auto;
+    margin-bottom: 5px;
+    height: 30px;
+    outline: none;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    background-color: gainsboro;
+}
+.btn{
+    background-color: rgb(79, 187, 255);
+    width: 100%;
+    padding: 5px 10px;
+    border: 0;
+    border-radius: 2px;
+    color: white;
+}
+.btn:hover{
+    background-color: rgb(114, 201, 255);
+}

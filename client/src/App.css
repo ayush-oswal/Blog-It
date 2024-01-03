@@ -1,0 +1,7 @@
+.App{
+  padding: 10px;
+  /* background-color: rgb(205, 205, 205); */
+}
+::-webkit-scrollbar {
+  display: none;
+}
