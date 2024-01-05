@@ -7,7 +7,7 @@ const post = (props) =>{
         <Link to={`/${props._id}`}>
         <div className='post'>
             <div className='image'>
-            <img src={`http://localhost:4000/uploads/${props.Cover}`} alt=''></img>
+            <img src={props.Cover} alt=''></img>
             </div>
             <div className='Content'>
             <h1>{props.Title}</h1>

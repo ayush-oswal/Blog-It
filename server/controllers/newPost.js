@@ -1,6 +1,9 @@
+import { getDataUri } from "../middleware/dataUri.js";
 import Post from "../models/post.js";
+import cloudinary from 'cloudinary'
 import jwt from 'jsonwebtoken'
 const NewPost = async(req,res) =>{
+    // console.log(req.file);
     try{
     const {token} = req.cookies;
     let userInfo=null;
@@ -8,8 +11,10 @@ const NewPost = async(req,res) =>{
         if(err) console.log(err);
         userInfo=info;
     })
+    const fileUri = getDataUri(req.file)
+    const cloudUri = await cloudinary.v2.uploader.upload(fileUri.content);
     const {Title , Summary , Content} = req.body;
-    const Cover = req.filename;
+    const Cover = cloudUri.secure_url;
     const {id} = userInfo;
     const newPost = new Post({
         Title,

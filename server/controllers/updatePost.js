@@ -1,9 +1,12 @@
 import Post from "../models/post.js";
-
+import cloudinary from 'cloudinary'
+import { getDataUri } from "../middleware/dataUri.js";
 const updatedPost = async(req,res) =>{
     try{
         const {id,Title,Summary,Content} = req.body;
-        const Cover = req.filename;
+        const fileUri = getDataUri(req.file)
+        const cloudUri = await cloudinary.v2.uploader.upload(fileUri.content);
+        const Cover = cloudUri.secure_url;
         await Post.updateOne(
             { _id: id },
             { $set: { Title, Summary, Cover, Content } }
