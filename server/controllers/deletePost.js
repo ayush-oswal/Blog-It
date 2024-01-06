@@ -1,5 +1,4 @@
 import Post from "../models/post.js";
-import fs from 'fs';
 
 export const deletePost = async(req,res) =>{
     const id = req.params.id;
