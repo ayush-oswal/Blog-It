@@ -19,7 +19,7 @@ if(!FRONTEND_URL || FRONTEND_URL!==""){
 }
 
 const app = express();
-app.use(cors({credentials:true,origin:origin}))
+app.use(cors({credentials:true,origin:"*"}))
 app.use(express.json())
 app.use(cookieParser());
 
