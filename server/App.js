@@ -10,11 +10,18 @@ import deletePostRoute from './routes/deletePost.js'
 import updatePostRoute from './routes/updatePost.js'
 import cookieParser from 'cookie-parser';
 
+dotenv.config()
+
+const FRONTEND_URL = process.env.FRONTEND_URL;
+let origin = "http://localhost:3000"
+if(!FRONTEND_URL || FRONTEND_URL!==""){
+    origin = FRONTEND_URL;
+}
+
 const app = express();
-app.use(cors({credentials:true,origin:'http://localhost:3000'}))
+app.use(cors({credentials:true,origin:origin}))
 app.use(express.json())
 app.use(cookieParser());
-dotenv.config()
 
 cloudinary.v2.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,

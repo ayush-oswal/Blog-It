@@ -11,7 +11,7 @@ export default function ViewPost(){
     const {userInfo} = useContext(UserContext);
     const Navigate = useNavigate();
     useEffect(()=>{
-        fetch(`http://localhost:4000/getPosts/${id}`,{
+        fetch(`https://blog-it-ukdh.onrender.co/getPosts/${id}`,{
         method:'GET'
     })
     .then(response=>{response.json().then(Post=>{setPostInfo(Post)})})
@@ -21,7 +21,7 @@ export default function ViewPost(){
 
     async function handleSubmit(e){
         e.preventDefault();
-        const updatedPost = await fetch(`http://localhost:4000/getPosts/${id}`,{
+        const updatedPost = await fetch(`https://blog-it-ukdh.onrender.co/getPosts/${id}`,{
             method:'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ export default function ViewPost(){
 
     async function deletePost(){
         try{
-            const response = await fetch(`http://localhost:4000/deletePost/${id}`)
+            const response = await fetch(`https://blog-it-ukdh.onrender.co/deletePost/${id}`)
             if(await response.json()==='ok'){
                 Navigate('/');
             }

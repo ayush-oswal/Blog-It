@@ -5,7 +5,7 @@ export default function IndexPage(){
     const [posts , setPosts] = useState([]);
     const [searchResults, setSearchResults] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:4000/getPosts',{
+        fetch('https://blog-it-ukdh.onrender.co/getPosts',{
             method:'GET'
         })
         .then(response => {

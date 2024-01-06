@@ -16,7 +16,7 @@ const CreatePost = () =>{
         formData.set('Summary',summary);
         formData.set('File',file);
         formData.set('Content',content);
-        const response = await fetch('http://localhost:4000/newpost',{
+        const response = await fetch('https://blog-it-ukdh.onrender.co/newpost',{
             method: 'POST',
             body: formData, 
             credentials: 'include',   

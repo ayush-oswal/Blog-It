@@ -12,7 +12,7 @@ export default function EditPost(){
     const [file,setFile] = useState(null);
     const Navigate = useNavigate();
     useEffect(()=>{
-        fetch(`http://localhost:4000/getPosts/${id}`,{
+        fetch(`https://blog-it-ukdh.onrender.co/getPosts/${id}`,{
             method:'GET'
         })
         .then(response=>{response.json().then(PostInfo=>{
@@ -36,7 +36,7 @@ export default function EditPost(){
         else{
             formData.set('File','');
         }
-        const response = await fetch(`http://localhost:4000/updatePost`,{
+        const response = await fetch(`https://blog-it-ukdh.onrender.co/updatePost`,{
             method:'PUT',
             body:formData,
             credentials:'include'

@@ -5,7 +5,7 @@ export default function UserPosts(){
     const {username} = useParams();
     const [posts,setPosts] = useState([]);
     useEffect(()=>{
-        fetch(`http://localhost:4000/getPosts/userposts/${username}`,{
+        fetch(`https://blog-it-ukdh.onrender.co/getPosts/userposts/${username}`,{
             method:'GET'
         })
         .then(response=>{response.json().then(result=>{setPosts(result)})});
