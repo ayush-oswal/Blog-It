@@ -28,14 +28,12 @@ To set up Blog-It locally, follow these comprehensive steps:
 
     -   Navigate to the `client` directory and install client dependencies:
 
-        bashCopy code
 
         `cd client
         npm install`
 
     -   Move back to the root directory and install server dependencies:
 
-        bashCopy code
 
         `cd ..
         cd server
@@ -51,11 +49,13 @@ To set up Blog-It locally, follow these comprehensive steps:
 
     -   Add the following variables to the `.env` file:
 
-        bashCopy code
 
-        `CLOUDINARY_CLOUD_NAME=your_cloud_name
-        CLOUDINARY_API_KEY=your_api_key
-        CLOUDINARY_API_SECRET=your_api_secret`
+
+        `CLOUDINARY_CLOUD_NAME=your_cloud_name`
+        
+        `CLOUDINARY_API_KEY=your_api_key`
+        
+        `CLOUDINARY_API_SECRET=your_api_secret`
 
     Ensure that you replace `your_cloud_name`, `your_api_key`, and `your_api_secret` with your actual Cloudinary credentials.
 
@@ -63,18 +63,16 @@ To set up Blog-It locally, follow these comprehensive steps:
 
     -   In the `client` directory:
 
-        bashCopy code
 
         `cd client
         npm start`
 
     -   In the `server` directory:
 
-        bashCopy code
 
         `cd ..
         cd server
-        npm start`
+        node app.js`
 
 4.  Access the application:
 
