@@ -13,6 +13,8 @@
 .content{
     text-align: center;
     width: 100%;
+    max-width: 100%;
+    overflow-wrap: break-word;
 }
 
 
@@ -86,6 +88,7 @@ input:hover{
     flex-direction: column;
     justify-content: space-between;
     max-height: 130px;
+    max-width: 300px;
     overflow-y: scroll;
 }
 

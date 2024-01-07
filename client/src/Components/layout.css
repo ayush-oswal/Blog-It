@@ -1,0 +1,22 @@
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 20px;
+  }
+  
+  .marquee-content {
+    color: rgb(0, 0, 0);
+    font-size: large;
+    animation: marquee 20s linear infinite; /* Adjust the duration as needed */
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%); /* Start offscreen to the right */
+    }
+  
+    100% {
+      transform: translateX(-100%); /* Move offscreen to the left */
+    }
+  }
+  
