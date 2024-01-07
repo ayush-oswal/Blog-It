@@ -12,14 +12,8 @@ import cookieParser from 'cookie-parser';
 
 dotenv.config()
 
-const FRONTEND_URL = process.env.FRONTEND_URL;
-let origin = "http://localhost:3000"
-if(!FRONTEND_URL || FRONTEND_URL!==""){
-    origin = FRONTEND_URL;
-}
-
 const app = express();
-app.use(cors({credentials:true,origin:"*"}))
+app.use(cors())
 app.use(express.json())
 app.use(cookieParser());
 

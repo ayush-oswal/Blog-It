@@ -16,10 +16,13 @@ const CreatePost = () =>{
         formData.set('Summary',summary);
         formData.set('File',file);
         formData.set('Content',content);
-        const response = await fetch('https://blog-it-ukdh.onrender.co/newpost',{
+        const token = localStorage.getItem("Authtoken");
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/newpost`,{
             method: 'POST',
             body: formData, 
-            credentials: 'include',   
+            headers: {
+                'Authorization': `${token}`, 
+            }   
         })
         if(await response.json()==='ok'){
             Navigate('/')

@@ -53,6 +53,3 @@ export const check = async(req,res)=>{
     })
 }
 
-export const logout = async(req,res)=>{
-    res.cookie('token','').json('ok');
-}

@@ -12,7 +12,7 @@ export default function EditPost(){
     const [file,setFile] = useState(null);
     const Navigate = useNavigate();
     useEffect(()=>{
-        fetch(`https://blog-it-ukdh.onrender.co/getPosts/${id}`,{
+        fetch(`${process.env.REACT_APP_SERVER_URL}/getPosts/${id}`,{
             method:'GET'
         })
         .then(response=>{response.json().then(PostInfo=>{
@@ -36,10 +36,10 @@ export default function EditPost(){
         else{
             formData.set('File','');
         }
-        const response = await fetch(`https://blog-it-ukdh.onrender.co/updatePost`,{
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/updatePost`,{
             method:'PUT',
             body:formData,
-            credentials:'include'
+             
         });
         if(await response.json()==='ok'){
             Navigate(`/${id}`)

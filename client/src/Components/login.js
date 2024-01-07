@@ -17,17 +17,18 @@ const Login = () => {
     }
     async function login(e){
         e.preventDefault();
-        const response = await fetch('https://blog-it-ukdh.onrender.co/auth/login',{
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/auth/login`,{
             method: 'POST',
             body: JSON.stringify({username,password}),
             headers: {'Content-type' : 'application/json'},
-            credentials: 'include',
         })
         if(response.ok===false) alert('Wrong credentials')
         else{
             response.json()
             .then(userinfo =>{
+                console.log(userinfo);
                 setUserInfo(userinfo);
+                localStorage.setItem("Authtoken",userinfo.token)
             })
             return Navigate("/")
         }

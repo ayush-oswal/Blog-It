@@ -3,9 +3,8 @@ import Post from "../models/post.js";
 import cloudinary from 'cloudinary'
 import jwt from 'jsonwebtoken'
 const NewPost = async(req,res) =>{
-    // console.log(req.file);
     try{
-    const {token} = req.cookies;
+    const token = req.headers.authorization;
     let userInfo=null;
     jwt.verify(token,process.env.SECRET,(err,info)=>{
         if(err) console.log(err);
