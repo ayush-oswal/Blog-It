@@ -36,13 +36,16 @@ export const login = async(req,res) =>{
             res.cookie('token',token).json({
                 id:userDoc._id,
                 username,
+                token
             });
         })
     }
 }
 
 export const check = async(req,res)=>{
-    const {token} = req.cookies;
+    const header = req.headers;
+    console.log(header);
+    const {token} = header?.authorization;
     if(!token) return res.json('')
     jwt.verify(token,process.env.SECRET,{},(err,info)=>{
         if(err) throw err;
