@@ -15,7 +15,7 @@ export default function ViewPost(){
         method:'GET'
     })
     .then(response=>{response.json().then(Post=>{setPostInfo(Post)})})
-    },[id,postInfo])
+    },[id,comment])
 
     if(!postInfo) return (<div></div>)
 
