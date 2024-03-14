@@ -8,6 +8,7 @@ export default function ViewPost(){
     const {id} = useParams();
     const [postInfo,setPostInfo] = useState({})
     const [comment,setComment] = useState('');
+    const [submitting,setSubmitting] = useState(false);
     const {userInfo} = useContext(UserContext);
     const Navigate = useNavigate();
     useEffect(()=>{
@@ -15,7 +16,7 @@ export default function ViewPost(){
         method:'GET'
     })
     .then(response=>{response.json().then(Post=>{setPostInfo(Post)})})
-    },[id,comment])
+    },[submitting])
 
     if(!postInfo) return (<div></div>)
 
@@ -30,6 +31,7 @@ export default function ViewPost(){
         })
         .then(response=>{response.json()})
         setPostInfo(updatedPost);
+        setSubmitting(true)
         setComment('')
     }
 
