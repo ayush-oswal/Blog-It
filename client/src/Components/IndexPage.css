@@ -1,0 +1,16 @@
+.speech{
+    padding: 5px 10px;
+    background-color: crimson;
+    color: white;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    margin: auto;
+}
+
+.search-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
