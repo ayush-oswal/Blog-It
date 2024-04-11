@@ -4,12 +4,18 @@ import cloudinary from 'cloudinary'
 import jwt from 'jsonwebtoken'
 const NewPost = async(req,res) =>{
     try{
-    const token = req.headers.authorization;
+    const header = req.headers;
+    const token = header?.authorization.split(' ')[1];
     let userInfo=null;
-    jwt.verify(token,process.env.SECRET,(err,info)=>{
-        if(err) console.log(err);
-        userInfo=info;
-    })
+    try{
+        jwt.verify(token,process.env.SECRET,(err,info)=>{
+            if(err) console.log(err);
+            userInfo=info;
+        })
+    }
+    catch(err){
+        console.log(err)
+    }
     const fileUri = getDataUri(req.file)
     const cloudUri = await cloudinary.v2.uploader.upload(fileUri.content);
     const {Title , Summary , Content} = req.body;

@@ -6,17 +6,19 @@ const Header = () =>{
     const {userInfo,setUserInfo} = useContext(UserContext)
     useEffect(()=>{
         const token = localStorage.getItem("Authtoken");
-        fetch(`${process.env.REACT_APP_SERVER_URL}/auth/check`,{
-            headers: {
-        'Authorization': `${token}`,
-        'Content-Type': 'application/json', 
-    }
-        })
-        .then(response=>{
-            response.json().then(UserInfo=>{
-                setUserInfo(UserInfo);
+        if(token){
+            fetch(`${process.env.REACT_APP_SERVER_URL}/auth/check`,{
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json', 
+                }
             })
-        })
+            .then(response=>{
+                response.json().then(UserInfo=>{
+                    setUserInfo(UserInfo);
+                })
+            })
+        }
     },[setUserInfo])
     function logout(){
         localStorage.setItem("Authtoken","");

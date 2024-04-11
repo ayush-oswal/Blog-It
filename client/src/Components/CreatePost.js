@@ -21,7 +21,7 @@ const CreatePost = () =>{
             method: 'POST',
             body: formData, 
             headers: {
-                'Authorization': `${token}`, 
+                'Authorization': `Bearer ${token}`, 
             }   
         })
         if(await response.json()==='ok'){

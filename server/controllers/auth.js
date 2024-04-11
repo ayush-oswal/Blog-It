@@ -33,7 +33,7 @@ export const login = async(req,res) =>{
     else{
         jwt.sign({username,id:userDoc._id},process.env.SECRET,{},(err,token)=>{
             if(err) throw err;
-            res.cookie('token',token).json({
+            res.json({
                 id:userDoc._id,
                 username,
                 token
@@ -44,11 +44,16 @@ export const login = async(req,res) =>{
 
 export const check = async(req,res)=>{
     const header = req.headers;
-    const token = header?.authorization;
+    const token = header?.authorization.split(' ')[1];
     if(!token) return res.json('')
-    jwt.verify(token,process.env.SECRET,{},(err,info)=>{
-        if(err) throw err;
-        res.json(info);
-    })
+    try{
+        jwt.verify(token,process.env.SECRET,{},(err,info)=>{
+            if(err) throw err;
+            res.json(info);
+        })
+    }
+    catch(err){
+        console.log(err)
+    }
 }
 

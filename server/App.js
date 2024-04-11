@@ -8,14 +8,12 @@ import postRoute from './routes/newPost.js';
 import getPostsRoute from './routes/getPosts.js';
 import deletePostRoute from './routes/deletePost.js'
 import updatePostRoute from './routes/updatePost.js'
-import cookieParser from 'cookie-parser';
 
 dotenv.config()
 
 const app = express();
 app.use(cors())
 app.use(express.json())
-app.use(cookieParser());
 
 cloudinary.v2.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
