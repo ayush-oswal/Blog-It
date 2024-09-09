@@ -14,3 +14,15 @@
     align-items: center;
     gap: 5px;
 }
+
+.spinner-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: auto;
+}
+
+.spinner{
+    width: 69px;
+    height: 69px;
+}
