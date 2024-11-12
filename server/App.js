@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { request, response } from 'express'
 import cors from "cors"
 import mongoose from 'mongoose';
 import dotenv from "dotenv"
@@ -32,6 +32,10 @@ app.use('/getPosts',getPostsRoute)
 app.use('/deletePost',deletePostRoute)
 
 app.use('/updatePost',updatePostRoute)
+
+app.get('/ping',(request,response)=>{
+    return response.json({message : "pingged"})
+})
 
 
 app.listen(4000,()=>{

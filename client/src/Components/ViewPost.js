@@ -58,7 +58,7 @@ export default function ViewPost(){
                 &nbsp;&nbsp;&nbsp;
                 <button onClick={deletePost} className="btn">Delete</button>
             </div>}
-            <div className="image"><img src={postInfo.Cover} alt='' /></div>
+            <div className="image"><img loading="lazy" src={postInfo.Cover} alt='' /></div>
             <div className="Content">
                 <div className="content" dangerouslySetInnerHTML={{ __html: postInfo.Content }}></div>
             </div>

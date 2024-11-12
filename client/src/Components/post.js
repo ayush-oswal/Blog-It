@@ -7,7 +7,7 @@ const post = (props) =>{
         <Link to={`/${props._id}`}>
         <div className='post'>
             <div className='image'>
-            <img src={props.Cover} alt=''></img>
+            <img loading='lazy' src={props.Cover} alt='' />
             </div>
             <div className='Content'>
             <h1>{props.Title}</h1>
